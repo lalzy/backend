@@ -1,3 +1,5 @@
+using System.Net.Http.Headers;
+
 public class RentingService{
     Dictionary<Book, int> bookInventory;
     Dictionary<Book, int> currentlyBorrowed;
@@ -15,12 +17,24 @@ public class RentingService{
         return bookInventory;
     }
 
-    public void BorrowBook (){
-        
+    public BorrowReceipt rentBook (String title){
+        foreach (Book book in bookInventory.Keys){
+            if(book.title.ToLower() == title.ToLower()){
+                bookInventory[book]--;
+                return new BorrowReceipt(title);
+            }
+        }
+        return null;
     }
 
-    public void ReturnBook (){
-
+    public ReturnReceipt ReturnBook (string title, DateTime borrowDate){
+        foreach (Book book in bookInventory.Keys){
+            if(book.title.ToLower() == title.ToLower()){
+                bookInventory[book]++;
+                return new ReturnReceipt(title, borrowDate);
+            }
+        }
+        return null;
     }
 
 }
@@ -36,9 +50,26 @@ public class Book{
 }
 
 public class BorrowReceipt{
+    public string title;
+    public DateTime borrowDate;
+    public DateTime returnDate;
 
+    public BorrowReceipt (string title){
+        borrowDate = DateTime.Now;
+        returnDate = DateTime.Now.AddMonths(3);
+        this.title = title;
+    }
 }
 
 public class ReturnReceipt{
 
+    public string title;
+    public DateTime borrowDate;
+    public DateTime returnDate;
+
+    public ReturnReceipt (string title, DateTime borrowedDate){
+        borrowDate = borrowedDate;
+        returnDate = DateTime.Now;
+        this.title = title;
+    }
 }
