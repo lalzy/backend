@@ -10,7 +10,7 @@ while(true){
     Console.WriteLine("list or 1 - to list all books");
     Console.WriteLine("borrow or 2 - to borrow a book");
     Console.WriteLine("return or 2 - to return a book");
-    Console.WriteLine("");
+    Console.WriteLine(">> ");
 
     input = Console.ReadLine();
     if(input == null){
@@ -24,7 +24,10 @@ while(true){
             break;
         case "1":
         case "list":
-            rentingService.ListAllBooks();
+            foreach (var book in rentingService.ListAllBooks()){
+                Console.WriteLine(String.Format("Book: {0} by {1}, Available: {2}", 
+                    book.Key.title, book.Key.author, book.Value));
+            }
             break;
         case "2":
         case "borrow":

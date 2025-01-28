@@ -11,11 +11,8 @@ public class RentingService{
         currentlyBorrowed = new Dictionary<Book, int>();
     } 
 
-    public void ListAllBooks(){
-        foreach (var book in bookInventory){
-            Console.WriteLine(String.Format("Book: {0} by {1}, Available: {2}", 
-                book.Key.title, book.Key.author, book.Value));
-        }
+    public Dictionary<Book,int> ListAllBooks(){
+        return bookInventory;
     }
 
     public void BorrowBook (){
