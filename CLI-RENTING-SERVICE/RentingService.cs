@@ -1,13 +1,14 @@
 using System.Net.Http.Headers;
+using System.Runtime.InteropServices;
 
 public class RentingService{
     Dictionary<Book, int> bookInventory;
     Dictionary<Book, int> currentlyBorrowed;
     public RentingService (){
         bookInventory = new Dictionary<Book,int>{
-            {new Book("The Marsian", "SomeDude"), 10},
-            {new Book("Foundation", "SomeDude"), 99},
-            {new Book("Harry Potter", "SomeDude"), 300},
+            {new Book("The Marsian", "SomeDude"), 2},
+            {new Book("Foundation", "SomeDude"), 2},
+            {new Book("Harry Potter", "SomeDude"), 1},
         };
         
         currentlyBorrowed = new Dictionary<Book, int>();
@@ -21,16 +22,54 @@ public class RentingService{
         return bookInventory;
     }
 
+    public bool checkAvailability(String title){
+        foreach(Book book in bookInventory.Keys){
+            if(book.title.ToLower() == title.ToLower()){
+                if (bookInventory[book] > 0)
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+    // public BorrowReceipt? rentBook (string title){
+    //     Book? book = (Book) bookInventory.Select((entry)=> entry.Key.title.ToLower() == title.ToLower());
+
+    //     if(book == null){
+    //         return null;
+    //     }
+
+    //     currentlyBorrowed.TryGetValue(book, out int amountBorrowed);
+    //     bookInventory.TryGetValue(book, out int amountInInventory);
+    //     bool isAvailable = amountInInventory - amountBorrowed > 0;
+
+    //     if(!isAvailable){
+    //         return null;
+    //     }else{
+    //         BorrowReceipt receipt = new BorrowReceipt(title);
+    //         amountBorrowed++;
+
+    //     }
+
+    //     return new BorrowReceipt(book.title);
+    // }
+
     public BorrowReceipt? rentBook (String title){
         foreach (Book book in bookInventory.Keys){
             if(book.title.ToLower() == title.ToLower()){
-                bookInventory[book]--;
-                return new BorrowReceipt(title);
+                if(checkAvailability(book.title)){
+                    bookInventory[book]--;
+                    //currentlyBorrowed.Add(book, (currentlyBorrowed[book] + 1));
+                    return new BorrowReceipt(title);
+                }else{
+                    return null;
+                }
             }
         }
         return null;
     }
-    
+
     public ReturnReceipt? ReturnBook (string title, DateTime borrowDate){ 
         foreach (Book book in bookInventory.Keys){
             if(book.title.ToLower() == title.ToLower()){

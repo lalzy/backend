@@ -41,6 +41,8 @@ while(true){
                 if(receipt != null){
                     borrowedBooks.Add(receipt);
                     Console.WriteLine(String.Format("Title = {0}, Date borrowed=[{1}], Due Date=[{2}]", receipt.title, receipt.borrowDate, receipt.returnDate));
+                }else{
+                    Console.WriteLine("Book is not available.");
                 }
             }
             break;
