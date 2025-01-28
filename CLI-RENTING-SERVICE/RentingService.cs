@@ -1,6 +1,8 @@
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 
+
+// Inummerable - interface for dictionary i stede.
 public class RentingService{
     Dictionary<Book, int> bookInventory;
     Dictionary<Book, int> currentlyBorrowed;
