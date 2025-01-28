@@ -1,8 +1,8 @@
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 
-
 // Inummerable - interface for dictionary i stede.
+// conflict-free-replicated-datatypes
 public class RentingService{
     Dictionary<Book, int> bookInventory;
     Dictionary<Book, int> currentlyBorrowed;
