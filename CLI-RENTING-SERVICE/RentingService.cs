@@ -33,28 +33,6 @@ public class RentingService{
         return false;
     }
 
-    // public BorrowReceipt? rentBook (string title){
-    //     Book? book = (Book) bookInventory.Select((entry)=> entry.Key.title.ToLower() == title.ToLower());
-
-    //     if(book == null){
-    //         return null;
-    //     }
-
-    //     currentlyBorrowed.TryGetValue(book, out int amountBorrowed);
-    //     bookInventory.TryGetValue(book, out int amountInInventory);
-    //     bool isAvailable = amountInInventory - amountBorrowed > 0;
-
-    //     if(!isAvailable){
-    //         return null;
-    //     }else{
-    //         BorrowReceipt receipt = new BorrowReceipt(title);
-    //         amountBorrowed++;
-
-    //     }
-
-    //     return new BorrowReceipt(book.title);
-    // }
-
     public BorrowReceipt? rentBook (String title){
         foreach (Book book in bookInventory.Keys){
             if(book.title.ToLower() == title.ToLower()){
