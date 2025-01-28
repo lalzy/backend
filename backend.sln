@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLI-RENTING-SERVICE", "CLI-RENTING-SERVICE\CLI-RENTING-SERVICE.csproj", "{5D9406B4-8E64-73F4-1392-56D1634D7CDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D9406B4-8E64-73F4-1392-56D1634D7CDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D9406B4-8E64-73F4-1392-56D1634D7CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D9406B4-8E64-73F4-1392-56D1634D7CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D9406B4-8E64-73F4-1392-56D1634D7CDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6CC3CC2-DD90-4596-93B3-970AE0AB5CDE}
+	EndGlobalSection
+EndGlobal
