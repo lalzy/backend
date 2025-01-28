@@ -21,7 +21,7 @@ public class RentingService{
         return bookInventory;
     }
 
-    public BorrowReceipt rentBook (String title){
+    public BorrowReceipt? rentBook (String title){
         foreach (Book book in bookInventory.Keys){
             if(book.title.ToLower() == title.ToLower()){
                 bookInventory[book]--;
@@ -30,15 +30,15 @@ public class RentingService{
         }
         return null;
     }
-
-    public ReturnReceipt ReturnBook (string title, DateTime borrowDate){
+    
+    public ReturnReceipt? ReturnBook (string title, DateTime borrowDate){ 
         foreach (Book book in bookInventory.Keys){
             if(book.title.ToLower() == title.ToLower()){
                 bookInventory[book]++;
                 return new ReturnReceipt(title, borrowDate);
             }
         }
-        return null;
+        return null; 
     }
 
 }

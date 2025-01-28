@@ -37,7 +37,7 @@ while(true){
             Console.Write(">> ");
             input = Console.ReadLine();
             if(input != null){
-                BorrowReceipt receipt = rentingService.rentBook(input);
+                BorrowReceipt? receipt = rentingService.rentBook(input);
                 if(receipt != null){
                     borrowedBooks.Add(receipt);
                     Console.WriteLine(String.Format("Title = {0}, Date borrowed=[{1}], Due Date=[{2}]", receipt.title, receipt.borrowDate, receipt.returnDate));
