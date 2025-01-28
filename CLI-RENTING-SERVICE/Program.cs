@@ -8,14 +8,17 @@ while(true){
     if(input == null){
         Environment.Exit(1);
     }
-
-    switch(input){
+    
+    switch(input.ToLower()){
         case "0":
+        case "exit":
             Environment.Exit(0);
             break;
-        case "1":
+        case "list":
             break;
-        case "2":
+        case "borrow":
+            break;
+        case "return":
             break;
         default:
             Console.WriteLine("Invalid Selection!");
