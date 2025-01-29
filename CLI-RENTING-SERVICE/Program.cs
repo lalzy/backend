@@ -7,10 +7,10 @@ List<BorrowReceipt> borrowedBooks = new List<BorrowReceipt>();
 while(true){
     Console.WriteLine("");
     Console.WriteLine("=== Welcome to the renting service ===");
-    Console.WriteLine("exit or 0 - to exit");
-    Console.WriteLine("list or 1 - to list all books");
-    Console.WriteLine("borrow or 2 - to borrow a book");
-    Console.WriteLine("return or 2 - to return a book");
+    Console.WriteLine("exit[0] - to exit");
+    Console.WriteLine("list[1] - to list all books");
+    Console.WriteLine("borrow[2] - to borrow a book");
+    Console.WriteLine("return[3] - to return a book");
     Console.Write(">> ");
     input = Console.ReadLine();
     Console.Clear();
