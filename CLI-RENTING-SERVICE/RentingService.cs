@@ -16,6 +16,7 @@ public class RentingService{
         currentlyBorrowed = new Dictionary<Book, int>();
     } 
 
+
     public void addBook (String title, String author, int amount = 1){
         bookInventory.Add(new Book(title, author), amount);
     }
