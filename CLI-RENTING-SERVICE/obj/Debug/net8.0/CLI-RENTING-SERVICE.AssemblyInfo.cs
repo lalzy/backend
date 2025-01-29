@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CLI-RENTING-SERVICE")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d14d1675955918147f4e7fc64eeb6abfa55695d7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a04975ecec6ca89fd1e9dba43291c19a09144781")]
 [assembly: System.Reflection.AssemblyProductAttribute("CLI-RENTING-SERVICE")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CLI-RENTING-SERVICE")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

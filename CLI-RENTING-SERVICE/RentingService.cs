@@ -26,7 +26,7 @@ public class RentingService{
     }
 
     public KeyValuePair<Book, int>? CheckAvailability(String title){
-        KeyValuePair<Book, int> bookKey = bookInventory.FirstOrDefault(entry => entry.Key.title.ToLower() == title.ToLower());
+        KeyValuePair<Book, int> bookKey = bookInventory.FirstOrDefault(entry => entry.Key.Title.ToLower() == title.ToLower());
 
         if (bookKey.Equals(default(KeyValuePair<Book, int>))){
             return null;
@@ -50,7 +50,7 @@ public class RentingService{
 
     private void addToBorrowed(Book book){
         KeyValuePair<Book, int> borrowedBook = currentlyBorrowed.FirstOrDefault(
-            entry=> entry.Key.title.Equals(book.title, StringComparison.OrdinalIgnoreCase));
+            entry=> entry.Key.Title.Equals(book.Title, StringComparison.OrdinalIgnoreCase));
         
         if(!borrowedBook.Equals(default(KeyValuePair<Book, int>))){
             currentlyBorrowed[book]++;
@@ -87,7 +87,7 @@ public class RentingService{
     }
 
     public ReturnReceipt? ReturnBook (string title, DateTime borrowDate){
-        KeyValuePair<Book, int> bookKey = currentlyBorrowed.FirstOrDefault((entry)=>entry.Key.title.Equals(title, StringComparison.OrdinalIgnoreCase));
+        KeyValuePair<Book, int> bookKey = currentlyBorrowed.FirstOrDefault((entry)=>entry.Key.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
     
         if(bookKey.Equals(default(KeyValuePair<Book, int>))){
             return null;
@@ -112,35 +112,35 @@ public class RentingService{
 }
 
 public class Book{
-    public String title;
-    public String author;
+    public String Title;
+    public String Author;
 
     public Book(String title, String author) {
-        this.title = title;
-        this.author = author;
+        this.Title = title;
+        this.Author = author;
     }
 }
 
 public class BorrowReceipt{
-    public string title;
-    public DateTime borrowDate;
-    public DateTime returnDate;
+    public string Title;
+    public DateTime BorrowDate;
+    public DateTime ReturnDate;
 
     public BorrowReceipt (string title){
-        borrowDate = DateTime.Now;
-        returnDate = DateTime.Now.AddMonths(3);
-        this.title = title;
+        BorrowDate = DateTime.Now;
+        ReturnDate = DateTime.Now.AddMonths(3);
+        this.Title = title;
     }
 }
 
 public class ReturnReceipt{
-    public string title;
-    public DateTime borrowDate;
-    public DateTime returnDate;
+    public string Title;
+    public DateTime BorrowDate;
+    public DateTime ReturnDate;
 
     public ReturnReceipt (string title, DateTime borrowedDate){
-        borrowDate = borrowedDate;
-        returnDate = DateTime.Now;
-        this.title = title;
+        BorrowDate = borrowedDate;
+        ReturnDate = DateTime.Now;
+        this.Title = title;
     }
 }

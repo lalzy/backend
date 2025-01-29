@@ -28,7 +28,7 @@ while(true){
         Console.WriteLine("--------");
             foreach (var book in rentingService.ListAllBooks()){
                 Console.WriteLine(String.Format("Book: {0} by {1}, Available: {2}", 
-                    book.Key.title, book.Key.author, book.Value));
+                    book.Key.Title, book.Key.Author, book.Value));
             }
             break;
         case "2":
@@ -40,7 +40,7 @@ while(true){
                 BorrowReceipt? receipt = rentingService.rentBook(input);
                 if(receipt != null){
                     borrowedBooks.Add(receipt);
-                    Console.WriteLine(String.Format("Title = {0}, Date borrowed=[{1}], Due Date=[{2}]", receipt.title, receipt.borrowDate, receipt.returnDate));
+                    Console.WriteLine(String.Format("Title = {0}, Date borrowed=[{1}], Due Date=[{2}]", receipt.Title, receipt.BorrowDate, receipt.ReturnDate));
                 }else{
                     Console.WriteLine("Book is not available.");
                 }
@@ -52,11 +52,11 @@ while(true){
             Console.Write(">> ");
             input = Console.ReadLine();
             if(input != null){
-                BorrowReceipt? br = borrowedBooks.FirstOrDefault(entry=>entry.title.Equals(input, StringComparison.OrdinalIgnoreCase));
+                BorrowReceipt? br = borrowedBooks.FirstOrDefault(entry=>entry.Title.Equals(input, StringComparison.OrdinalIgnoreCase));
                 if (br == null){
                     Console.WriteLine("No such book has been borrowed");
                 }else{
-                    ReturnReceipt? rp = rentingService.ReturnBook(input, br.borrowDate);
+                    ReturnReceipt? rp = rentingService.ReturnBook(input, br.BorrowDate);
 
                     if(rp == null){
                         Console.WriteLine("We have no recod of this book");
