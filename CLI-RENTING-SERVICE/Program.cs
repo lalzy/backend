@@ -12,8 +12,8 @@ while(true){
     Console.WriteLine("borrow or 2 - to borrow a book");
     Console.WriteLine("return or 2 - to return a book");
     Console.Write(">> ");
-
     input = Console.ReadLine();
+    Console.Clear();
     if(input == null){
         Environment.Exit(1);
     }
@@ -52,12 +52,24 @@ while(true){
             Console.Write(">> ");
             input = Console.ReadLine();
             if(input != null){
-                foreach(BorrowReceipt br in borrowedBooks){
-                    if(br.title.ToLower() == input.ToLower()){
-                        rentingService.ReturnBook(input, br.borrowDate);
-                        break;
+                BorrowReceipt? br = borrowedBooks.FirstOrDefault(entry=>entry.title.Equals(input, StringComparison.OrdinalIgnoreCase));
+                if (br == null){
+                    Console.WriteLine("No such book has been borrowed");
+                }else{
+                    ReturnReceipt? rp = rentingService.ReturnBook(input, br.borrowDate);
+
+                    if(rp == null){
+                        Console.WriteLine("We have no recod of this book");
+                    }else{
+                        Console.WriteLine($"Thanks! for returning {input}");
                     }
                 }
+                // foreach(BorrowReceipt br in borrowedBooks){
+                //     if(br.title.ToLower() == input.ToLower()){
+                //         rentingService.ReturnBook(input, br.borrowDate);
+                //         break;
+                //     }
+                // }
 
             }
             break;
@@ -68,5 +80,4 @@ while(true){
 
     Console.WriteLine("");
     Console.WriteLine("-----------");
-    Console.WriteLine("");
 }
