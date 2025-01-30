@@ -1,3 +1,4 @@
+using System.Dynamic;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 
@@ -112,8 +113,8 @@ public class RentingService{
 }
 
 public class Book{
-    public String Title;
-    public String Author;
+    public String Title {get; set;}
+    public String Author {get; set;}
 
     public Book(String title, String author) {
         this.Title = title;
