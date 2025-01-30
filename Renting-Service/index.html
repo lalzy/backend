@@ -8,6 +8,11 @@
         body { font-family: Arial, sans-serif; padding: 20px; }
         #booksList { margin-bottom: 20px; }
         button { margin-top: 10px; padding: 5px 10px; }
+        body{
+            position:absolute;
+            width:49%;
+            left: 40%;
+        }
     </style>
 </head>
 <body>
@@ -33,7 +38,7 @@ async function fetchBooks() {
         const li = document.createElement("li");
 
         // If book is an object, extract title (adjust if your object structure is different)
-        li.textContent = book.title;
+        li.textContent = `${book.title} - ${book.author}`;
         
         booksList.appendChild(li);
     });

@@ -9,9 +9,10 @@ public class RentingService{
     Dictionary<Book, int> currentlyBorrowed;
     public RentingService (){
         bookInventory = new Dictionary<Book,int>{
-            {new Book("The Marsian", "SomeDude"), 2},
-            {new Book("Foundation", "SomeDude"), 2},
-            {new Book("Harry Potter", "SomeDude"), 1},
+            {new Book("The Marsian", "someDude1"), 2},
+            {new Book("Foundation", "SomeDude3"), 2},
+            {new Book("Harry Potter", "SomeDude2"), 1},
+            {new Book("ABC", "123"), 1},
         };
         
         currentlyBorrowed = new Dictionary<Book, int>();
