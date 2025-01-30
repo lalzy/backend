@@ -3,24 +3,9 @@ using System.Runtime.InteropServices;
 
 // Inummerable - interface for dictionary i stede?
 // conflict-free-replicated-datatypes
-
-public class RentingService : IEnumerable<Book>
-{
+public class RentingService{
     Dictionary<Book, int> bookInventory;
     Dictionary<Book, int> currentlyBorrowed;
-
-
-    public IEnumerable<Book> GetEnumerator(){
-        foreach(KeyValuePair<Book, int> bookKey in bookInventory){
-            yield return bookKey.Key;
-        }
-    }
-
-    IEnumerator IEnumerable.GetEnumerator(){
-        return GetEnumerator();
-    }
-
-
     public RentingService (){
         bookInventory = new Dictionary<Book,int>{
             {new Book("The Marsian", "SomeDude"), 2},
