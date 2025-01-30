@@ -123,9 +123,9 @@ public class Book{
 }
 
 public class BorrowReceipt{
-    public string Title;
-    public DateTime BorrowDate;
-    public DateTime ReturnDate;
+    public string Title {get; set;}
+    public DateTime BorrowDate {get; set;}
+    public DateTime ReturnDate {get; set;}
 
     public BorrowReceipt (string title){
         BorrowDate = DateTime.Now;
