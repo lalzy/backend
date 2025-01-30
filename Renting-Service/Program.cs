@@ -20,7 +20,6 @@ app.MapPost("/borrow", (BorrowRequest borrowRequest)=>{
     if(br == null){
         return Results.BadRequest("Not available");
     }else{
-        // return Results.Accepted($"Book: {br.Title}");
         return Results.Ok(br);
     }
 });
