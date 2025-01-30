@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Rental</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        #booksList { margin-bottom: 20px; }
+        button { margin-top: 10px; padding: 5px 10px; }
+    </style>
+</head>
+<body>
+
+    <h2>Available Books</h2>
+    <ul id="booksList"></ul>
+
+    <h2>Borrow a Book</h2>
+    <input type="text" id="bookTitle" placeholder="Enter book title">
+    <button onclick="borrowBook()">Borrow</button>
+    
+    <p id="responseMessage"></p>
+
+    <script>
+async function fetchBooks() {
+    const response = await fetch('/books'); // Fetch data from backend
+    const books = await response.json();   // Parse JSON response
+
+    const booksList = document.getElementById("booksList");
+    booksList.innerHTML = ""; // Clear old list
+
+    books.forEach(book => {
+        const li = document.createElement("li");
+
+        // If book is an object, extract title (adjust if your object structure is different)
+        li.textContent = book.title;
+        
+        booksList.appendChild(li);
+    });
+}
+
+async function borrowBook() {
+    const title = document.getElementById("bookTitle").value;
+    
+    const response = await fetch('/borrow', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: title })
+    });
+
+    const message = document.getElementById("responseMessage");
+    if (response.ok) {
+        const receipt = await response.json();
+        message.textContent = `Borrowed: ${receipt.title}`;
+        fetchBooks(); // Refresh list
+    } else {
+        message.textContent = "Book not available.";
+    }
+}
+
+// Load books when the page opens
+fetchBooks();
+    </script>
+
+</body>
+</html>

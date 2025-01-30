@@ -1,6 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
+app.UseStaticFiles();
+
 RentingService rentingService = new RentingService();
 
 // rentingService.rentBook;
@@ -22,6 +24,13 @@ app.MapPost("/borrow", (BorrowRequest borrowRequest)=>{
         return Results.Ok(br);
     }
 });
+
+
+// Serve the frontend when accessing the root URL
+app.MapGet("/", async (HttpContext context) => {
+    await context.Response.SendFileAsync("index.html");
+});
+
 
 app.Run();
 
