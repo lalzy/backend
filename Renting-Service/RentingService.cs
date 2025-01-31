@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 public class RentingService{
     Dictionary<Book, int> bookInventory;
     Dictionary<Book, int> currentlyBorrowed;
+
     public RentingService (){
         bookInventory = new Dictionary<Book,int>{
             {new Book("The Marsian", "someDude1"), 2},
@@ -17,7 +18,6 @@ public class RentingService{
         
         currentlyBorrowed = new Dictionary<Book, int>();
     } 
-
 
     public void addBook (String title, String author, int amount = 1){
         bookInventory.Add(new Book(title, author), amount);
