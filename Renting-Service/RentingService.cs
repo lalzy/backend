@@ -52,7 +52,7 @@ public class RentingService{
     private void addToBorrowed(Book book){
         KeyValuePair<Book, int> borrowedBook = currentlyBorrowed.FirstOrDefault(
             entry=> entry.Key.Title.Equals(book.Title, StringComparison.OrdinalIgnoreCase));
-        
+
         if(!borrowedBook.Equals(default(KeyValuePair<Book, int>))){
             currentlyBorrowed[book]++;
         }else{
