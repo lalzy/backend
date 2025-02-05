@@ -33,10 +33,13 @@ String setupDatabase(string user="bruker", string password="Zaq12345", string da
 
 string test = setupDatabase();
 
-app.MapGet("/", () => test);
-
-app.MapGet("/oppgave", () => {
+app.MapGet("/", () => {
     return Results.Ok(test);
+});
+
+
+app.MapPost("/add", ()=>{
+    return Results.Ok("post");
 });
 
 app.Run();
