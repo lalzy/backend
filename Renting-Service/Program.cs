@@ -24,11 +24,11 @@ app.MapPost("/borrow", (BorrowRequest borrowRequest)=>{
     }
 });
 
-
 // Serve the frontend when accessing the root URL
 app.MapGet("/", async (HttpContext context) => {
     await context.Response.SendFileAsync("index.html");
 });
+
 
 
 app.Run();

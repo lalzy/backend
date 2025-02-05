@@ -100,6 +100,7 @@ public class RentingService{
         if(currentlyBorrowed[bookKey.Key] <= 0){
             currentlyBorrowed.Remove(bookKey.Key);
         }
+
     //     foreach (Book book in bookInventory.Keys){
     //         if(book.title.ToLower() == title.ToLower()){
     //             bookInventory[book]++;
@@ -108,6 +109,7 @@ public class RentingService{
     //     }
     //     return null; 
     // }
+
         return new ReturnReceipt(title, borrowDate);
     }
 }
