@@ -3,3 +3,5 @@ class oppgaveRequest{
     public required string beskrivelse  {get;set;}
     public required string status  {get;set;}
 }
+
+// postgres=# CREATE TABLE oppgave (titel TINYTEXT, beskrivelse TEXT, status TINYTEXT)
